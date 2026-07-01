@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ app_name }}</title>
+  <style>
+    :root { --bg:#0b1220; --card:#111c33; --accent:#38bdf8; --text:#e2e8f0; --muted:#94a3b8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #16233f, var(--bg));
+      color: var(--text); min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; padding: 24px;
+    }
+    .card {
+      background: var(--card); border: 1px solid #1e2d4d; border-radius: 18px;
+      padding: 40px; max-width: 640px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+    .badge {
+      display: inline-block; background: rgba(56,189,248,.12); color: var(--accent);
+      border: 1px solid rgba(56,189,248,.35); padding: 6px 14px; border-radius: 999px;
+      font-size: 13px; font-weight: 600; margin-bottom: 20px;
+    }
+    h1 { font-size: 28px; line-height: 1.25; margin-bottom: 10px; }
+    p.lead { color: var(--muted); margin-bottom: 28px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tile { background: #0e1830; border: 1px solid #1e2d4d; border-radius: 12px; padding: 16px; }
+    .tile .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+    .tile .v { font-size: 15px; margin-top: 6px; word-break: break-word; }
+    .live { color: #4ade80; }
+    footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+    a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 520px){ .grid{ grid-template-columns:1fr; } .card{ padding:26px; } }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">● Live on Azure App Service</span>
+    <h1>{{ app_name }}</h1>
+    <p class="lead">Project 2 of 5 — a dynamic Python web app, deployed automatically by GitHub Actions CI/CD. This page is rendered <strong>server-side</strong> on every request.</p>
+
+    <div class="grid">
+      <div class="tile"><div class="k">Server time</div><div class="v live">{{ utc_time }}</div></div>
+      <div class="tile"><div class="k">Server host</div><div class="v">{{ hostname }}</div></div>
+      <div class="tile"><div class="k">Python</div><div class="v">{{ python_version }}</div></div>
+      <div class="tile"><div class="k">Region</div><div class="v">{{ region }}</div></div>
+      <div class="tile"><div class="k">Build tag</div><div class="v">{{ build }}</div></div>
+      <div class="tile"><div class="k">Endpoints</div><div class="v"><a href="/health">/health</a> · <a href="/api/info">/api/info</a></div></div>
+    </div>
+
+    <footer>
+      Built by Harish · Python · Flask · Gunicorn · Azure App Service (Linux) · GitHub Actions<br />
+      Refresh the page — the server time updates, proving this is dynamic, not static.
+    </footer>
+  </main>
+</body>
+</html>
