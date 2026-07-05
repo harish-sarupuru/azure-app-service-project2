@@ -8,7 +8,7 @@ Where Project 1 served *static* files from Blob Storage, this project runs *serv
 code* on a managed platform and ships changes automatically — the core of modern cloud
 delivery.
 
-**Live site:** https://harish-webapp-project2.azurewebsites.net/  *(update to your real URL)*
+**Live site:** https://harish-webapp-project2-bnbtatd9amgdgxa4.australiasoutheast-01.azurewebsites.net/
 
 ---
 
